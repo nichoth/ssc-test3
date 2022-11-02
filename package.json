@@ -1,0 +1,42 @@
+{
+  "name": "@nichoth/socket-test",
+  "version": "0.2.3",
+  "main": "load-test.js",
+  "bin": {
+    "ssct": "./bin/cli.js"
+  },
+  "description": "",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "start": "ssc compile -r .",
+    "test": "./dist/TestExample-dev.app/Contents/MacOS/test-example-dev --test | tap-arc",
+    "test-cli": "./bin/cli.js . | tap-arc",
+    "build": "ssc compile .",
+    "go": "./dist/TestExample-dev.app/Contents/MacOS/test-example-dev",
+    "postversion": "git push && git push --tags && npm publish"
+  },
+  "devDependencies": {
+    "esbuild": "^0.14.49",
+    "tap-arc": "^0.3.5",
+    "tapzero": "^0.6.1"
+  },
+  "dependencies": {
+    "@socketsupply/components": "^13.2.19",
+    "@socketsupply/ssc-node": "^1.7.2",
+    "@socketsupply/tonic": "^14.1.5",
+    "comandante": "^0.0.1",
+    "json-stringify-safe": "^5.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nichoth/socket-test.git"
+  },
+  "author": "nichoth",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nichoth/socket-test/issues"
+  },
+  "homepage": "https://github.com/nichoth/socket-test#readme"
+}
