@@ -1,8 +1,8 @@
 // @ts-check
 'use strict'
 
-const { test } = require('tapzero')
-const TestCommon = require('../../harness.js')
+import { test } from 'tapzero'
+import TestCommon from '../../harness'
 
 test('example fail', async t => {
   await TestCommon.create()

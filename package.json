@@ -1,5 +1,6 @@
 {
   "name": "@nichoth/socket-test",
+  "type": "module",
   "version": "0.2.3",
   "main": "load-test.js",
   "bin": {
@@ -10,11 +11,10 @@
     "test": "test"
   },
   "scripts": {
-    "start": "ssc compile -r .",
-    "test": "./dist/TestExample-dev.app/Contents/MacOS/test-example-dev --test | tap-arc",
+    "start": "ssc build -r .",
+    "test": "ssc run --test . | tap-arc",
     "test-cli": "./bin/cli.js . | tap-arc",
-    "build": "ssc compile .",
-    "go": "./dist/TestExample-dev.app/Contents/MacOS/test-example-dev",
+    "build": "ssc build .",
     "postversion": "git push && git push --tags && npm publish"
   },
   "devDependencies": {

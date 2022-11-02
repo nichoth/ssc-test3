@@ -1,4 +1,4 @@
-module.exports = function parseConfig (conf) {
+export default function parseConfig (conf) {
     return Object.fromEntries(conf
         .split('\n')
         .filter((line) => line.length && !/^#/.test(line))

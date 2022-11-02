@@ -1,9 +1,9 @@
 // @ts-check
 'use strict'
 
-const Tonic = require('@socketsupply/tonic')
-const Components = require('@socketsupply/components')
-const loadTest = require('../../load-test')
+import Tonic from '@socketsupply/tonic'
+import Components from '@socketsupply/components'
+import loadTest from '../../load-test.js'
 
 Components(Tonic)
 
@@ -316,12 +316,13 @@ window.onload = () => {
   // must do this to run tests
   // it checks an arg passed in: `--test`
   // sets AppContainer as a global variable on `window`
-  const isTesting = loadTest(new AppContainer())
+  // const isTesting = loadTest(new AppContainer())
+  const app = new AppContainer()
+  loadTest(app)
 
   // don't need to attach the app in this case
-  if (isTesting) return
+  // if (isTesting) return
 
-  const app = new AppContainer()
   app.id = 'root'
   document.body.appendChild(app)
 }

@@ -1,5 +1,7 @@
-function loadTest (appContainer) {
+export default function loadTest (appContainer) {
   const isTest = process.argv.some(item => item.includes('--test'))
+
+  console.log('is tesssssssssssssssssssssst', isTest)
 
   if (!isTest) return false
 
@@ -8,7 +10,6 @@ function loadTest (appContainer) {
   // shared between two bundles, expose important things as global
   // variables.
   //
-
   Reflect.set(window, 'TEST_AppContainer', appContainer)
 
   // add a script tag to the html
@@ -20,5 +21,3 @@ function loadTest (appContainer) {
 
   return true
 }
-
-module.exports = loadTest

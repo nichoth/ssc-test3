@@ -1,6 +1,6 @@
-const path = require('path')
-const assert = require('assert')
-const system = require('@socketsupply/ssc-node')
+import path from 'path'
+import assert from 'assert'
+import system from '@socketsupply/ssc-node'
 
 let counter = 0
 

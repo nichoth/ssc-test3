@@ -1,12 +1,13 @@
 // @ts-check
 'use strict'
 
-const { test } = require('tapzero')
-const Harness = require('../../harness')
+import { test } from 'tapzero'
+import Harness from '../../harness'
 
 let harness
 test('create harness', async t => {
   harness = await Harness.create()
+  t.ok(harness, 'should create harness')
 })
 
 test('app container', async t => {

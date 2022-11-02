@@ -1,15 +1,15 @@
 // @ts-check
 'use strict'
 
-const stringify = require('json-stringify-safe')
+import stringify from 'json-stringify-safe'
 const system = window.system
-const sleep = require('./sleep')
+import sleep from './sleep'
 
-class TestCommon {
+export default class Harness {
   static async create () {
-    const c = new TestCommon()
-    await c.bootstrap()
-    return c
+    const harness = new Harness()
+    await harness.bootstrap()
+    return harness
   }
 
   constructor () {
@@ -17,6 +17,8 @@ class TestCommon {
   }
 
   async bootstrap () {
+    Harness.PatchConsole()
+
     /**
      * AppContainer is the appContainer component created by the app process
      * and assigned to window
@@ -57,10 +59,6 @@ class TestCommon {
     this.container = null
   }
 }
-
-TestCommon.PatchConsole()
-
-module.exports = TestCommon
 
 /**
  * @param {ErrorEvent} event

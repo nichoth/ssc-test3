@@ -1,6 +1,9 @@
-const path = require('path')
-const fs = require('fs/promises')
-const esbuild = require('esbuild')
+// @ts-check
+"use strict"
+
+import path from 'path'
+import fs from 'fs/promises'
+import esbuild from 'esbuild'
 
 //
 // The output target is passed by the build tool,
@@ -42,30 +45,13 @@ async function main () {
     bundle: true,
     keepNames: true,
     // minify: true,
-    format: 'cjs',
+    // format: 'cjs',
+    format: 'esm',
     outfile: path.join(target, 'main.js'),
     platform: 'node'
   })
 
-  // TODO Since we don't have ASAR, why not GZip?
-
   await cp('src/render/index.html', target)
-
-  // let ext = ''
-
-  // switch (process.platform) {
-  //   case 'win32':
-  //     ext = 'ico'
-  //     // await cp(`src/icons/icon.png`, target)
-  //     break;
-  //   case 'linux':
-  //     ext = 'png'
-  //     break
-  //   case 'darwin':
-  //     ext = 'icns'
-  // }
-
-  // await cp(`src/icons/icon.${ext}`, target)
 }
 
 main()

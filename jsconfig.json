@@ -3,7 +3,6 @@
     "target": "es2018",
     "lib": ["es2018", "dom"],
     "noEmit": true,
-    "module": "commonjs",
     "strict": false,
     "moduleResolution": "node",
     "resolveJsonModule": true
