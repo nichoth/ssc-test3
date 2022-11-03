@@ -12,7 +12,7 @@
   },
   "scripts": {
     "start": "ssc build -r .",
-    "test": "ssc run --test . | tap-arc",
+    "test": "ssc run --test=test.js . | tap-arc",
     "test-cli": "./bin/cli.js . | tap-arc",
     "build": "ssc build .",
     "postversion": "git push && git push --tags && npm publish"

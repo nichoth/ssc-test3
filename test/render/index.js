@@ -2,11 +2,14 @@
 'use strict'
 
 import { test } from 'tapzero'
-import Harness from '../../harness'
+import { Harness } from '../../harness'
 
 let harness
 test('create harness', async t => {
+  console.log('harness', Harness)
+  console.log('bbbbbbbbbbbbbbbbbbbbbbbbbbbbb')
   harness = await Harness.create()
+  console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
   t.ok(harness, 'should create harness')
 })
 

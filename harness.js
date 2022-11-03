@@ -5,7 +5,7 @@ import stringify from 'json-stringify-safe'
 const system = window.system
 import sleep from './sleep'
 
-export default class Harness {
+export class Harness {
   static async create () {
     const harness = new Harness()
     await harness.bootstrap()
@@ -17,7 +17,9 @@ export default class Harness {
   }
 
   async bootstrap () {
+    console.log('ccccccccccc')
     Harness.PatchConsole()
+    console.log('ddddddddddddd')
 
     /**
      * AppContainer is the appContainer component created by the app process
@@ -25,9 +27,9 @@ export default class Harness {
      */
     const AppContainer = Reflect.get(window, 'TEST_AppContainer')
     this.container = AppContainer
-    this.container.id = 'app-container'
+    // this.container.id = 'app-container'
 
-    document.body.appendChild(this.container)
+    // document.body.appendChild(this.container)
 
     /**
      * Wait for an async render() to hopefully complete.
@@ -36,6 +38,7 @@ export default class Harness {
   }
 
   static PatchConsole () {
+    console.log('eeeeeeeeeeeeee')
     // eslint-disable-next-line
     console.log = (...args) => {
       system.send({
@@ -46,6 +49,8 @@ export default class Harness {
         }]
       })
     }
+
+    console.log('fffffffffffffff')
 
     window.addEventListener('error', handleWindowError)
     window.addEventListener('unhandledrejection', handleWindowUnhandled)

@@ -3,7 +3,7 @@
 
 import path from 'path'
 import fs from 'fs/promises'
-import esbuild from 'esbuild'
+import * as esbuild from 'esbuild'
 
 //
 // The output target is passed by the build tool,
